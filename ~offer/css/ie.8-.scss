@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+.compatible-ie-skill-1 {
+  background: url(../images/skill-backend-placeholder.jpg) no-repeat center center;
+  height: 360px;
+  .ain2face, .note {
+    display: none;
+  }
+}
+
+.compatible-ie-skill-2 {
+  background: url(../images/skill-communication-placeholder.jpg) no-repeat center center;
+  height: 360px;
+}
+
+.compatible-ie-exp {
+  background: url(../images/timeline-placeholder.jpg) no-repeat center center;
+  height: 200px;
+  #timeline-figure, .note {
+    display: none;
+  }
+}

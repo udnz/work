@@ -1,0 +1,692 @@
+@charset "utf-8";
+@import "mixin";
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #000000;
+  background-color: $color_body_bg;
+}
+
+body, td, p, input, textarea, select {
+  font-size: 14px;
+  line-height: 180%;
+  font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+  letter-spacing: .1em;
+}
+
+*[lang=en] {
+  letter-spacing: 0em;
+  * {
+    letter-spacing: 0em;
+  }
+}
+
+a img {
+  border: 0
+}
+
+p {
+  text-indent: 2em;
+}
+
+.red {
+  color: red;
+}
+
+form, figure {
+  margin: 0;
+  padding: 0
+}
+
+.clear {
+  height: 0px;
+  line-height: 0px;
+  display: block;
+  clear: both;
+}
+
+.note {
+  color: #666666;
+  font-size: .8em;
+  padding-left: 20px;
+  text-align: left;
+  background: url(../images/note.png) no-repeat left 1px;
+  width: 180px;
+  margin: auto;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+a {
+  color: $color_link;
+  text-decoration: none;
+  border-bottom: 1px dotted #FF8800;
+  padding: 0 .3em;
+
+  &:link {
+    @extend a;
+  }
+  &:visited {
+    color: $color_link;
+  }
+  &:hover, &:active {
+    color: #FF0000;
+    border-bottom: 1px solid #FF0000;
+  }
+
+  &.noborder {
+    border-width: 0;
+    padding: 0
+  }
+}
+
+h2 {
+  font-family: "Open Sans", "Helvetica", "Arial";
+  font-size: 4em;
+  font-weight: bolder;
+  text-shadow: 1px 1px #FFFFFF, 2px 2px 2px #AAAAAA;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0.2em 0 0.5em 0;
+  letter-spacing: -0.07em;
+  color: $color_h2;
+}
+
+h3 {
+  padding: .5em;
+  margin: 1em 0;
+  line-height: 160%;
+  @include radius(8px);
+  -moz-text-shadow: -1px -1px 3px #FFFFFF;
+  -webkit-text-shadow: -1px -1px 3px #FFFFFF;
+  -o-text-shadow: -1px -1px 3px #FFFFFF;
+  -ms-text-shadow: -1px -1px 3px #FFFFFF;
+  text-shadow: -1px -1px 3px #FFFFFF;
+  background: -moz-linear-gradient(90deg, $color_h3_bg1 0%, $color_h3_bg2 100%);
+  background: -webkit-linear-gradient(0deg, $color_h3_bg1 0%, $color_h3_bg2 100%);
+  background: -o-linear-gradient(90deg, $color_h3_bg1 0%, $color_h3_bg2 100%);
+  background: -ms-linear-gradient(90deg, $color_h3_bg1 0%, $color_h3_bg2 100%);
+  background: linear-gradient(90deg, $color_h3_bg1 0%, $color_h3_bg2 100%);
+}
+
+h3 span {
+  color: #666666;
+  font-style: italic;
+  font-family: Georgia;
+  font-size: 14px;
+  font-weight: lighter;
+  float: right;
+  letter-spacing: 1px;
+  -moz-text-shadow: 1px 1px #FFFFFF, 3px 3px 3px #FF8800;
+  -webkit-text-shadow: 1px 1px #FFFFFF, 3px 3px 3px #FF8800;
+  -o-text-shadow: 1px 1px #FFFFFF, 3px 3px 3px #FF8800;
+  -ms-text-shadow: 1px 1px #FFFFFF, 3px 3px 3px #FF8800;
+  text-shadow: 1px 1px #FFFFFF, 3px 3px 3px #FF8800;
+}
+
+h4 {
+  font-size: 1.05em
+}
+
+body > header {
+  background: url(../images/section-bg.png) repeat-x left bottom;
+  margin-bottom: 4em;
+  width: 100%;
+}
+
+#banner {
+  height: 480px;
+  background: url(../images/head-bg.png) no-repeat center top;
+
+  #banner-content {
+    width: $width_glboal_container;
+    margin: auto;
+  }
+  #banner-photo {
+    width: 256px;
+    height: 256px;
+    position: relative;
+    top: 130px;
+    left: 15px;
+    background: url(../images/photo.jpg) no-repeat center center;
+  }
+}
+
+#navigation {
+  margin: auto;
+  clear: both;
+  z-index: 1000;
+
+  ul {
+    margin: auto;
+    width: 51em;
+    margin-top: -1.5em;
+
+    li {
+      margin: 0 1px 0 0;
+      float: left;
+      list-style: none;
+      width: 8.2em;
+      height: 3em;
+      overflow: hidden;
+      transition: all .1s;
+      @include menu_bu_bg($color_menu_bu);
+
+      &:first-child {
+        @include radius(8px 0 0 0px);
+      }
+      &:last-child {
+        @include radius(0 0px 8px 0);
+      }
+      &:hover {
+        @include menu_bu_bg_hover($color_menu_bu_hover);
+      }
+      &.current {
+        @include menu_bu_bg_hover($color_menu_bu_hover);
+      }
+
+      a, a:link, a:hover, a:visited {
+        display: block;
+        padding: 0 0 0 .5em;
+        line-height: 2.3em;
+        height: 6em;
+        text-align: center;
+        color: #FFFFFF;
+        font-size: 1.3em;
+        text-decoration: none;
+        letter-spacing: .6em;
+        transition: all .1s;
+
+        span {
+          font-family: "Open Sans", "Helvetica", "Arial";
+          font-size: .8em;
+          letter-spacing: 0em;
+          font-weight: bolder;
+          text-transform: uppercase;
+          clear: both;
+        }
+      }
+
+      a:hover, &.current a {
+        margin-top: -2.3em;
+        padding: 0;
+      }
+    }
+  }
+
+  &.keep-top {
+    position: fixed;
+    top: 0em;
+    padding: .5em 0 1em;
+    overflow: hidden;
+    background: url(../images/section-bg.png) repeat-x left bottom;
+    width: 100%;
+
+    ul {
+      margin: 0 auto;
+    }
+  }
+}
+
+section {
+  padding: 0 0 5em;
+  background: url(../images/section-bg.png) repeat-x left bottom;
+  min-height: 500px;
+
+  .page {
+    max-width: $width_glboal_container;
+    margin: 3em auto 0;
+
+    .page-title {
+      margin: auto;
+      text-align: center;
+
+      .title-wrap {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 1em 5px;
+      }
+
+      &:before {
+        content: " ";
+        display: inline-block;
+        height: 1px;
+        vertical-align: middle;
+        background: #85817D;
+        width: 80px;
+        @include page_title_line(#ECECE4, #85817D);
+      }
+
+      &:after {
+        @extend .page-title:before;
+        @include page_title_line(#85817D, #ECECE4);
+      }
+    }
+    .page-content {
+      > ul, > ol {
+        margin: 0;
+        padding: 0
+      }
+      > ul > li, > ol > li {
+        padding-left: 0;
+        margin-bottom: 2em;
+      }
+    }
+    .page-summary {
+      font-size: 2em;
+      line-height: 1.5em;
+      color: #AAAAAA;
+      text-align: center;
+      margin: 0 0 1em 0;
+    }
+  }
+}
+
+#about-profile {
+  float: right;
+  width: $width_profile;
+}
+
+#about-info {
+  float: left;
+  width: $width_glboal_container - $width_profile - 30px;
+}
+
+#intro {
+  list-style: none;
+  clear: both;
+  margin: .8em 0;
+  padding: 0;
+
+  li {
+    float: left;
+    line-height: 2.2em;
+
+    &:nth-child(odd) {
+      float: left;
+      clear: left;
+    }
+    &:nth-child(even) {
+      float: right;
+      clear: right;
+    }
+
+    span.left {
+      display: block;
+      float: left;
+      width: 4.5em;
+      color: #CCCCCC;
+      margin-right: .1em;
+      white-space: nowrap;
+      border-bottom: 1px solid $color_body_bg; // 1px fix to get the same height as span.right.
+    }
+
+    span.right {
+      display: block;
+      float: left;
+      padding-left: .5em;
+      width: 14.5em;
+      border-bottom: 1px dotted #CCCCCC;
+    }
+  }
+
+  li:hover span.left {
+    color: #000000;
+  }
+}
+
+a#dlResume {
+  width: 260px;
+  height: 48px;
+  display: block;
+  background: url(../images/word.png) no-repeat left center;
+  border: 1px solid #2c5898;
+  color: #2c5898;
+  padding: 0 0px 0 20px;
+  margin: auto;
+  line-height: 48px;
+  font-size: 1.4em;
+  letter-spacing: 0em;
+  transition: all .3s;
+  text-align: center;
+  @include box-sizing;
+
+  &:hover{
+    color:#fff;
+    background-color: #2c5898;
+    transition: all .3s;
+  }
+}
+
+.baseinfo-quote {
+  font-style: italic;
+  border: 1px dotted #CCCCCC;
+  margin: 1em 0 0em 0;
+  padding: 1em;
+  @include baseinfo_quote_shadow(#FFFFFF, #AAAAAA);
+}
+
+// 绕 X 轴旋转一圈
+.line_3d {
+  display: block;
+  cursor: default;
+  transition: all 3s;
+  &:hover {
+    -moz-transform: rotateX(360deg);
+    -webkit-transform: rotateX(360deg);
+    -o-transform: rotateX(360deg);
+    -ms-transform: rotateX(360deg);
+    transform: rotateX(360deg);
+  }
+}
+
+// 绕 Y 轴旋转一圈
+.line_3d_y {
+  @extend .line_3d;
+
+  &:hover {
+    -moz-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+}
+
+.skill-group {
+  margin: 3em 0 1em;
+  clear: both;
+
+  /* 根据奇偶靠左或靠右显示 */
+  &:nth-child(odd) .skill-detail, &:nth-child(even) .skill-chart {
+    float: left;
+  }
+  &:nth-child(even) .skill-detail, &:nth-child(odd) .skill-chart {
+    float: right;
+  }
+
+  .skill-detail {
+    width: 58%;
+  }
+
+  .skill-chart {
+    width: 40%;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .skill-quote {
+    @extend .skill-chart;
+  }
+
+  .skill-chart canvas {
+    margin: -30px -20px;
+  }
+
+  .skill-detail-content {
+    padding: 0 1em;
+  }
+
+  .skill-detail-env-tools ul > li:first-child {
+    float: left;
+    width: 46%;
+  }
+  .skill-detail-env-tools ul > li:last-child {
+    float: right;
+    width: 50%;
+  }
+  .skill-detail-env-tools ul > li ol {
+    padding-left: .5em
+  }
+}
+
+.group-2col-1 {
+  width: 48%;
+  float: left;
+  clear: left;
+}
+
+.group-2col-2 {
+  width: 48%;
+  float: right;
+  clear: right;
+}
+
+.skill-2col-1 {
+  @extend .group-2col-1;
+  .skill-detail {
+    @include box-sizing;
+    width: 100%;
+    padding: 0 1em;
+  }
+  .skill-chart {
+    width: 100%;
+  }
+}
+
+.skill-2col-2 {
+  @extend .group-2col-2;
+  .skill-detail {
+    @include box-sizing;
+    width: 100%;
+    padding: 0 1em;
+  }
+  .skill-chart {
+    width: 100%;
+  }
+}
+
+.context-2col {
+  @include cols(2, 2em, #DAD9DB);
+}
+
+.context-3col {
+  @include cols(3, 2em, #DAD9DB);
+}
+
+/* 纯 CSS3 实现翻转两面显示的效果 - BEGIN */
+.ain2face {
+  overflow: hidden;
+  height: 350px;
+  position: relative;
+
+  .face1 {
+    position: absolute;
+    top: 0;
+    left: 5em;
+    transition: all 1.5s;
+  }
+
+  .face2 {
+    @extend .face1;
+    // 默认状态旋转至垂直
+    -moz-transform: rotateY(-90deg);
+    -webkit-transform: rotateY(-90deg);
+    -o-transform: rotateY(-90deg);
+    -ms-transform: rotateY(-90deg);
+    transform: rotateY(-90deg);
+  }
+  -webkit-transition-property: -webkit-transform, opacity;
+  -moz-transition-property: -moz-transform, opacity;
+  -o-transition-property: -o-transform, opacity;
+  transition-property: transform, opacity;
+  -webkit-transition-property: -webkit-transform, opacity;
+  -moz-transition-property: -moz-transform, opacity;
+  -o-transition-property: -o-transform, opacity;
+  transition-property: transform, opacity;
+
+  &:hover {
+    transition: all 1.5s;
+    .face1 {
+      -moz-transform: rotateY(-90deg);
+      -webkit-transform: rotateY(-90deg);
+      -o-transform: rotateY(-90deg);
+      -ms-transform: rotateY(-90deg);
+      transform: rotateY(-90deg);
+    }
+
+    .face2 {
+      -moz-transform: rotateY(0deg);
+      -webkit-transform: rotateY(0deg);
+      -o-transform: rotateY(0deg);
+      -ms-transform: rotateY(0deg);
+      transform: rotateY(0deg);
+    }
+  }
+}
+
+/* 纯 CSS3 实现翻转两面显示的效果 - END */
+
+.exp-list {
+  > li {
+    list-style: none;
+  }
+  > li > li {
+    margin-bottom: .8em;
+  }
+  article {
+    .exp-content {
+      padding: 0 2em;
+    }
+  }
+}
+
+.work-list {
+  list-style: decimal inside;
+  list-style: none\9; // for IE 11 as it is not supporting condition comments. (will not load ie.css)
+  > li {
+    .work-list-item-content {
+      padding: 0 0 0 2em;
+      ul {
+        padding-left: 0
+      }
+    }
+  }
+  .snapshot-container {
+    float: right;
+    padding: 0 10px;
+  }
+  h3 span {
+    font-style: normal;
+    font-size: .6em;
+  }
+}
+
+// for firefox only
+@-moz-document url-prefix() {
+  .work-list {
+    list-style-type: none;
+  }
+}
+
+.contact {
+  .contact-form {
+    padding: 1em 0;
+    input {
+      width: 49%;
+      font-size: 1.2em;
+      letter-spacing: 0;
+      border: 1px solid #AAAAAA;
+      padding: .5em;
+      margin: .5em 0 0 0;
+      @include box-sizing;
+      @include radius(5px);
+      -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), inset 0px 2px 0px rgba(0, 0, 0, 0.03);
+      -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), inset 0px 2px 0px rgba(0, 0, 0, 0.03);
+      -o-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), inset 0px 2px 0px rgba(0, 0, 0, 0.03);
+      -ms-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), inset 0px 2px 0px rgba(0, 0, 0, 0.03);
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), inset 0px 2px 0px rgba(0, 0, 0, 0.03);
+
+      &:first-child {
+        float: left;
+      }
+      &:nth-child(2) {
+        float: right;
+      }
+    }
+
+    textarea {
+      @extend input;
+      margin: 1em 0 0.5em;
+      width: 100%;
+      height: 12em;
+      overflow-y: auto;
+    }
+
+    .contact-button {
+      line-height: 3em;
+      #asynInfo {
+        display: none;
+      }
+      button {
+        margin: 0;
+        line-height: 1.1em;
+        padding: .5em 2em;
+        margin-left: 1em;
+        font-size: 1.5em;
+        font-family: '微软雅黑';
+      }
+    }
+  }
+}
+
+footer {
+  background: url(../images/bottom-text.png) no-repeat center 40px;
+  background-color: #1A1A1A;
+  color: #AAAAAA;
+  font-size: .8em;
+  line-height: 1.8em;
+  letter-spacing: 1px;
+  padding: 90px 0 40px;
+  text-align: center;
+
+  #bottom {
+    padding: 2em 0;
+    a, a:link, a:visited {
+      color: #AAAAAA;
+      border-color: #AAAAAA;
+    }
+
+    #tech-info {
+      img {
+        margin-top: 4px;
+        margin-bottom: -4px;
+      }
+    }
+  }
+}
+
+.compatible-ie {
+  position: relative;
+}
+
+.mask-for-compatible-ie {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  text-align: center;
+  background: url(../images/mask-bg.png) repeat 0 0;
+  div {
+    position: absolute;
+    padding: 1em;
+    width: 100%;
+    left: 0;
+    bottom: 0px;
+    background-color: #dad9db;
+  }
+}
+
+// for IE 10 only, as it is not supporting condition comments. (will not load ie.css)
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .contact {
+    .contact-form {
+      input {
+        line-height: 1em;
+      }
+    }
+  }
+}

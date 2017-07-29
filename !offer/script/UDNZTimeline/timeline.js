@@ -648,7 +648,6 @@
         }
 
         this.__showErrMsg = function (msg) {
-            alert("aa");
             var msgDom = "<strong>Error:</strong><div class='__tl_err_msg'>" + msg + "</div>";
             if (!!this.params.container._ref && this.params.container._ref.length > 0) {
                 this.params.container._ref.html("<div class='__tl_err'>" + msgDom + "</div>");
